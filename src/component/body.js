@@ -9,6 +9,7 @@ function filterData(searchText, AllRestrauntList) {
   );
 }
 
+
 const RestrauntCard = (props) => {
   return (
     <div className="card">
