@@ -30,6 +30,8 @@
     margin: 10px;
 }
 
+
 .reataraunt-List{
     display: flex;
+    flex-wrap: wrap;
 }
