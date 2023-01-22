@@ -1,6 +1,6 @@
 //This is named Import
 import { useState ,useEffect} from "react";
-import { IMG_CDN_LINK, RestrsuntData } from "../UtilsOrConstant/config";
+import RestrauntCard from "./restrauntCard";
 import Shimmer from "./shimmer";
 
 function filterData(searchText, AllRestrauntList) {
@@ -10,16 +10,7 @@ function filterData(searchText, AllRestrauntList) {
 }
 
 
-const RestrauntCard = (props) => {
-  return (
-    <div className="card">
-      <img src={IMG_CDN_LINK + props.restaurant.data.cloudinaryImageId} />
-      <h2>{props.restaurant.data.name}</h2>
-      <h3> {props.restaurant.data.cuisines.join()}</h3>
-      <h4>{props.restaurant.data.avgRating} star</h4>
-    </div>
-  );
-};
+
 
 const Body = () => {
   const [AllRestrauntList, setAllRestrauntList] = useState([]);
