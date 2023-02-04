@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 
 const Title = () => {
   return (
@@ -12,25 +12,43 @@ const Title = () => {
 };
 
 const Header = () => {
-
-    const [isLogin, setLogin] = useState(false);
-
+  const [isLogin, setLogin] = useState(false);
 
   return (
     <div className="header">
       <Title />
       <div className="nav-item">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contacts</li>
+          <li>
+            <Link to="/">Home </Link>
+          </li>
+
+          <li>
+            <Link to="/about">About </Link>
+          </li>
+          <li>
+            <Link to="/con">Contacts</Link>
+          </li>
         </ul>
       </div>
-       {isLogin ?
-     ( <button onClick={() => {setLogin(false)}}> Login </button>):(
-      <button onClick={() => { setLogin(true) }}>Logout</button>
-      )
-    }
+      {isLogin ? (
+        <button
+          onClick={() => {
+            setLogin(false);
+          }}
+        >
+          {" "}
+          Login{" "}
+        </button>
+      ) : (
+        <button
+          onClick={() => {
+            setLogin(true);
+          }}
+        >
+          Logout
+        </button>
+      )}
     </div>
   );
 };

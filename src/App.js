@@ -5,7 +5,9 @@ import Body from "./component/body";
 import Footer from "./component/footer";
 import About from "./component/about";
 import Error from "./component/Error";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Contact from "./component/contact";
+import RestrauntMenu from "./component/RestrauntMenu";
+import {createBrowserRouter, RouterProvider,Outlet} from "react-router-dom";
 
 
 
@@ -15,7 +17,7 @@ const AppLayout = () =>{
     return (
     <>
     <Header />
-    <Body />
+    <Outlet />
     <Footer />
     </>
     );
@@ -28,11 +30,25 @@ const appRoute = createBrowserRouter([
     {
         path:"/",
         element: <AppLayout />,
-        errorElement: <Error />
-    },
-    {
-        path:"/about",
-        element: <About />
+        errorElement: <Error />,
+        children:[
+            {
+                path:"/",
+                element:<Body />
+            },
+            {
+                path:"/about",
+                element:<About />
+            },
+            {
+                path:"/con",
+                element: <Contact />
+            },
+            {
+                path:"/res/:id",
+                element: <RestrauntMenu />
+            }
+        ]
     }
 ]);
 

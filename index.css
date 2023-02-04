@@ -43,3 +43,7 @@
     background: lightblue;
     margin: 10px;
 }
+
+.rest-menu{
+    display: flex;
+}

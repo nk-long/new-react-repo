@@ -1,5 +1,6 @@
 //This is named Import
 import { useState ,useEffect} from "react";
+import { Link } from "react-router-dom";
 import RestrauntCard from "./restrauntCard";
 import Shimmer from "./shimmer";
 
@@ -30,16 +31,16 @@ const Body = () => {
 
       const json = await data.json();
       console.log(data)
-      console.log(json?.data?.cards[0]?.data?.data?.cards)
-      setAllRestrauntList(json?.data?.cards[0]?.data?.data?.cards);
-      setFilteredRestraunt(json?.data?.cards[0]?.data?.data?.cards);
+      console.log(json?.data?.cards[2]?.data?.data?.cards)
+      setAllRestrauntList(json?.data?.cards[2]?.data?.data?.cards);
+      setFilteredRestraunt(json?.data?.cards[2]?.data?.data?.cards);
 
   }
 
   
 
   return filteredRestraunt.length === 0 ?(
-      <Shimmer/>
+      <Shimmer />
   ) : (
     <>
       <div>
@@ -66,7 +67,9 @@ const Body = () => {
       <div className="reataraunt-List">
         {filteredRestraunt.map((restaurant) => {
           return (
-            <RestrauntCard restaurant={restaurant} key={restaurant.data.id} />
+            <Link to={"/res/" + restaurant.data.id} key={restaurant.data.id}>
+            <RestrauntCard restaurant={restaurant}  />
+            </Link>
           );
         })}
 
